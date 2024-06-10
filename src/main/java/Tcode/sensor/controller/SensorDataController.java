@@ -4,6 +4,8 @@ package Tcode.sensor.controller;
 import Tcode.sensor.model.Enum.SensorType;
 import Tcode.sensor.model.po.SensorData;
 import Tcode.sensor.service.SensorDataService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
-
+@Tag(name = "数据接收控制器")
 @RestController
 @RequestMapping("/api/sensor-data")
 public class SensorDataController {
@@ -20,11 +22,13 @@ public class SensorDataController {
     @Autowired
     private SensorDataService sensorDataService;
 
+    @Operation(summary = "获取所有类型数据信息")
     @GetMapping
     public List<SensorData> getAllSensorData() {
         return sensorDataService.getAllSensorData();
     }
 
+    @Operation(summary = "按类型获取数据信息")
     @GetMapping("/type")
     public List<SensorData> getSensorDataByType(@RequestParam(value = "type",required = false) SensorType type) {
         if(type==null){
@@ -34,7 +38,7 @@ public class SensorDataController {
     }
 
 
-
+    @Operation(summary = "按类型和时间范围获取数据信息")
     @GetMapping("/type/range")
     public List<SensorData> getSensorDataByTypeAndTimestampRange(
             @RequestParam(value = "type", required = false) SensorType type,

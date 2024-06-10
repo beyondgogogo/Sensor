@@ -1,0 +1,33 @@
+#数据库相关
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/sensor_data
+    username: root
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+#mqtt相关
+mqtt:
+  broker:
+    url: tcp://8.138.133.153:1883
+  client:
+    id: BackendService
+  topic: sensor/data
+
+springdoc:
+  #配置knife4j-docs输出路径
+#  api-docs:
+#    path: /api-docs
+  #配置swagger输出路径
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+  default-flat-param-object: true
+
+knife4j:
+  enable: true
+
+#http://localhost:8080/doc.html
+#http://localhost:8080/swagger-ui/index.html

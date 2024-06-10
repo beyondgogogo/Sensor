@@ -57,6 +57,34 @@
 			<version>1.2.5</version>
 		</dependency>
 
+		<!--引入依赖，用于集成（Swagger3）Open Api到SpringBoot项目中-->
+<!--		<dependency>-->
+<!--			<groupId>org.springdoc</groupId>-->
+<!--			<artifactId>springdoc-openapi-ui</artifactId>-->
+<!--			<version>1.6.3</version>-->
+<!--		</dependency>-->
+
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+
+
+		<!--引入knife4j依赖，增加Swagger3,生成更美观的文档-->
+		<dependency>
+			<groupId>com.github.xiaoymin</groupId>
+			<artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+			<version>4.1.0</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
